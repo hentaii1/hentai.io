@@ -1,6 +1,6 @@
-## Welcome to GitHub Pages
+## hentai的个人博客
 
-You can use the [editor on GitHub](https://github.com/hentaii1/homepage/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+只是一个个人爱好弄着玩的东西.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
