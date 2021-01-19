@@ -1,36 +1,63 @@
-# Jekyll-Uno with Projects as Timeline
-A Jekyll Theme, based on the Uno-Theme with a list of projects as Timeline.
+[Hux Blog](https://huangxuan.me)
+================================
 
-## How does is look
-[Demo](http://thomas.zuehlke.family/)
-![Screenshot](screenshot-overview.png)
-![jekyll-theme-desktop](https://user-images.githubusercontent.com/32843441/72224870-5451ff00-357f-11ea-8fc2-bfbd4499bc63.gif)
-![jekyll-theme-mobil](https://user-images.githubusercontent.com/32843441/72224877-6a5fbf80-357f-11ea-920b-dfae72bf2fbe.gif)
+> I never expected this becomes popular.
 
-## Installation/Setup
-1. Download or clone repo `git clone https://github.com/tzuehlke/jekyll-uno-timeline.git`
-2. Enter the folder: `cd jekyll-uno-timeline/`
-3. Build it: `jekyll build`
-4. Start Jekyll server: `jekyll serve`
-5. Configure: `_config.yml`
-   * at least set `font_awesome` or download and add the font in `head.html`
+![](http://huangxuan.me/img/blog-desktop.jpg)
 
-Access via: [http://localhost:4000/](http://localhost:4000/)
 
-## Details/Features/Changes
-* based on the [Uno-Theme](https://github.com/joshgerdes/jekyll-uno), but:
-  * removed everything with posts
-  * `content-wrapper` can be shown or hidden with button
-  * changed all icons to [Font-Awesome](https://fontawesome.com/)
-  * updated google-analytics snipped
-  * added [Meetup-Link](https://www.meetup.com/)
-  * removed RSS
-  * removed Disqus
-  * using a Timeline-Design instead of posts, therefore no pagination anymore
-* using Timeline ([CSS](https://github.com/le4ker/personal-jekyll-theme/blob/master/css/timeline.scss), [HTML](https://github.com/le4ker/personal-jekyll-theme/blob/master/_includes/timeline.html) ) from [{ Personal } Jekyll Theme](https://github.com/le4ker/personal-jekyll-theme) for a list of projects, but:
-  * still with 3 layouts for different screen-width, but without images on small screens
-  * timeline information source is now `_data/projects.yaml`
-  * always using the `timeline-inverted`-class, for text on the right side of the images
-* using [github_api.js](https://github.com/jarrekk/Jalpc/blob/master/static/js/github_api.js) from [Jalpc.](https://github.com/jarrekk/Jalpc), but:
-  * changed the GitHub-URL for using with persons and organisations
-  * added watchers number
+[User Manual 👉](_doc/Manual.md)
+--------------------------------------------------
+
+### Getting Started
+
+1. You will need [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/) to use [Jekyll](https://jekyllrb.com/). Following [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/) to fullfill the enviromental requirement.
+
+2. Installed dependencies in the `Gemfile`:
+
+```sh
+$ bundle install 
+```
+
+3. Serve the website (`localhost:4000` by default):
+
+```sh
+$ bundle exec jekyll serve  # alternatively, npm start
+```
+
+### Development (Build From Source)
+
+To modify the theme, you will need [Grunt](https://gruntjs.com/). There are numbers of tasks you can find in the `Gruntfile.js`, includes minifing JavaScript, compiling `.less` to `.css`, adding banners to keep the Apache 2.0 license intact, watching for changes, etc. 
+
+Yes, they were inherited and are extremely old-fashioned. There is no modularization and transpilation, etc.
+
+Critical Jekyll-related code are located in `_include/` and `_layouts/`. Most of them are [Liquid](https://github.com/Shopify/liquid/wiki) templates.
+
+This theme uses the default code syntax highlighter of jekyll, [Rouge](http://rouge.jneen.net/), which is compatible with Pygments theme so just pick any pygments theme css (e.g. from [here](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) and replace the content of `highlight.less`.
+
+
+### Interesting to know more? Checkout the [full user manual](_doc/Manual.md)!
+
+
+Other Resources
+---------------
+
+Ports
+- [**Hexo**](https://github.com/Kaijun/hexo-theme-huxblog) by @kaijun
+- [**React-SSR**](https://github.com/LucasIcarus/huxpro.github.io/tree/ssr) by @LucasIcarus
+
+[Starter/Boilerplate](https://github.com/huxpro/huxblog-boilerplate)
+- Out of date. Helps wanted for updating it on par with the main repo
+
+Translation
+- [🇨🇳 (somewhat outdated)](https://github.com/Huxpro/huxpro.github.io/blob/master/_doc/README.zh.md)
+
+
+License
+-------
+
+Apache License 2.0.
+Copyright (c) 2015-present Huxpro
+
+Hux Blog is derived from [Clean Blog Jekyll Theme (MIT License)](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/)
+Copyright (c) 2013-2016 Blackrock Digital LLC.

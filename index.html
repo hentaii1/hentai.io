@@ -1,40 +1,46 @@
 ---
-layout: default
-robots: noindex
+layout: page
+description: "「离开世界之前 一切都是过程」"
 ---
 
-<!--<div class="main-post-list">-->
-
-  <ul class="timeline">
-    
-    {% for project in site.data.projects %}
-
-      <li class="timeline-inverted">
-        <div class="timeline-image">
-          <img class="img-me" src="{{ project.img | prepend: site.baseurl }}" alt="">
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+        <div class="post-content-preview">
+            {% if post.lang == 'en' %}
+                {{ post.content | strip_html | truncate:300 }}
+            {% else %}
+                {{ post.content | strip_html | truncate:200 }}
+            {% endif %}
         </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4><a href="https://github.com/{{ project.gh_user }}/{{ project.repo }}" target="_blank">{{ project.name }}</a></h4>
-          </div>
-          <div class="timeline-body">
-            {{ project.desc | markdownify }}
-            <div user="{{ project.gh_user }}" repo="{{ project.repo }}" class="ghbtn" style="margin-top: 10px;">
-              <a target="_blank" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}/stargazers"><i class="fa fa-star"></i><span class="star"> ...</span></a>&emsp;&emsp;
-              <a target="_blank" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}/network"><i class="fa fa-code-fork"></i><span class="fork"> ...</span></a>&emsp;&emsp;
-              <a target="_blank" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}/watchers"><i class="far fa-eye"></i><span class="watchers">...</span></a target="_blank" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}/watchers">
-              <div style="height: 10px;"></div>
-          </div>
-        </div>
-      </li>
-    {% endfor %}
-    <!--
-    <li class="timeline-inverted">
-      <div class="timeline-image">
-        <img class="user-image" src="{{site.baseurl}}{{ site.timeline-img }}" alt="">
-      </div>
-    </li> -->
-  </ul>
+    </a>
+    <p class="post-meta">
+        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+    </p>
+</div>
+<hr>
+{% endfor %}
 
-<!--</div>-->
-
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
